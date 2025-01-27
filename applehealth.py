@@ -31,6 +31,22 @@ Version: 1.0.0
 import xml.etree.ElementTree as ET
 from datetime import datetime
 import pandas as pd
+import xml.etree.ElementTree as ET
+from datetime import datetime
+import pandas as pd
+
+# OS-based Matplotlib backend selection
+import platform
+import matplotlib
+
+if platform.system() == 'Linux':
+    try:
+        matplotlib.use('Qt5Agg')  # Use PyQt5 for interactive plotting on Linux
+    except ImportError:
+        print("Warning: PyQt5 is not installed. Using default backend.")
+else:
+    matplotlib.use('TkAgg')  # Use TkAgg on Windows or other OS
+
 import matplotlib.pyplot as plt
 import openai
 import os
